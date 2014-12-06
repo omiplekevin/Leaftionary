@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/plantImage"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:adjustViewBounds="true"
+        android:background="#CCC"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:padding="10dp"
+        android:background="#66FFFFFF"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/plantName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plant Name"
+            android:textSize="15sp"
+            android:textColor="#333333"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/plantPrimeDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Plant Name"
+            android:textSize="13sp"
+            android:textColor="#444444"
+            android:textStyle="italic"/>
+    </LinearLayout>
+
+</FrameLayout>

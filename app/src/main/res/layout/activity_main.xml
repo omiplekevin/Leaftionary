@@ -1,4 +1,51 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/container"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    tools:context=".MainActivity" tools:ignore="MergeRootFrame" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CCC"
+    android:gravity="center|center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/cameraBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:background="@drawable/circle_camera_bg"
+            android:maxHeight="100dp"
+            android:padding="20dp"
+            android:layout_marginRight="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/camera" />
+
+        <ImageButton
+            android:id="@+id/bookBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:background="@drawable/circle_book_bg"
+            android:maxHeight="100dp"
+            android:padding="20dp"
+            android:layout_marginLeft="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/book" />
+    </LinearLayout>
+    <ImageButton
+        android:id="@+id/questionBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxHeight="100dp"
+        android:src="@drawable/question"
+        android:background="@drawable/circle_question_bg"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:padding="20dp"/>
+
+
+</LinearLayout>
