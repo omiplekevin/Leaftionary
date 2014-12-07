@@ -1,12 +1,16 @@
 package com.android.leaftionary;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.android.leaftionary.adapter.PlantListAdapter;
+import com.android.leaftionary.fragment.PlantDetailFragment;
 import com.android.leaftionary.model.PlantModel;
 
 import java.util.ArrayList;
@@ -18,6 +22,7 @@ public class PlantListActivity extends Activity {
 
     PlantListAdapter adapter;
     ListView listView;
+    ArrayList<PlantModel> plants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +33,7 @@ public class PlantListActivity extends Activity {
 
         listView = (ListView)findViewById(R.id.plantList);
 
-        ArrayList<PlantModel> plants = new ArrayList<>();
+        plants = new ArrayList<>();
         PlantModel model;
         for(int i=0;i<100;i++){
             model = new PlantModel();
@@ -39,6 +44,17 @@ public class PlantListActivity extends Activity {
 
         adapter = new PlantListAdapter(this, plants);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                PlantDetailFragment pdf = new PlantDetailFragment();
+                pdf.setModel(plants.get(position));
+                ft.replace(R.id.container, pdf);
+                ft.addToBackStack("plantdetailview");
+                ft.commit();
+            }
+        });
 
     }
 

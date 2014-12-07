@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/plantList"
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:dividerHeight="0dp"
-        android:divider="#000000FF"
-        android:cacheColorHint="#000000FF">
+        android:layout_height="match_parent">
 
-        </ListView>
+        <ListView
+            android:id="@+id/plantList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#000000FF"
+            android:divider="#000000FF"
+            android:dividerHeight="0dp"/>
+    </FrameLayout>
 
 </LinearLayout>
