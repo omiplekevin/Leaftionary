@@ -3,10 +3,13 @@ package com.android.leaftionary;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.android.leaftionary.helper.Utilities;
 
 
 public class MainActivity extends Activity implements View.OnClickListener{
@@ -62,6 +65,16 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.questionBtn:
                 break;
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        if(Utilities.checkDatabase(getApplicationContext())){
+            String res = Utilities.SendJSONRequest("http://localhost/herbal/public/json/plants.json");
+            if(res != null){
+                Log.e("JSONString", res);
+            }
         }
     }
 }

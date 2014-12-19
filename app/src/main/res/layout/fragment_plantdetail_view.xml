@@ -5,15 +5,34 @@
     android:orientation="vertical"
     android:background="#FFFFFF">
 
-    <ImageView
-        android:id="@+id/plantDetailImage"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:adjustViewBounds="true"
-        android:background="#34e86f"
-        android:scaleType="centerCrop"/>
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="200dp">
+
+        <ImageView
+            android:id="@+id/plantDetailImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:adjustViewBounds="true"
+            android:background="#34e86f"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/textView3"
+            android:layout_gravity="center_vertical|bottom"
+            android:background="#55000000"
+            android:textColor="#FFFFFF"
+            android:padding="7dp"
+            android:textStyle="bold|italic" />
+    </FrameLayout>
+
     <ListView
         android:id="@+id/plantDetailList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
 </LinearLayout>

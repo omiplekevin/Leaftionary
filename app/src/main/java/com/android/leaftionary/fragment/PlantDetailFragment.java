@@ -6,11 +6,12 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.leaftionary.R;
+import com.android.leaftionary.adapter.PlantDetailListAdapter;
 import com.android.leaftionary.model.PlantModel;
 
 /**
@@ -21,15 +22,18 @@ public class PlantDetailFragment extends Fragment {
     View view;
     ListView listView;
     ImageView plantImage;
-    PlantModel model;
+    TextView plantName;
 
-    public void setModel(PlantModel model){
+    PlantModel model;
+    PlantDetailListAdapter adapter;
+
+    public void setModel(PlantModel model) {
         this.model = model;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if(view == null){
+        if (view == null) {
             view = inflater.inflate(R.layout.fragment_plantdetail_view, container, false);
         }
 
@@ -40,15 +44,18 @@ public class PlantDetailFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        listView = (ListView)view.findViewById(R.id.plantDetailList);
-        plantImage = (ImageView)view.findViewById(R.id.plantDetailImage);
+        plantName = (TextView)view.findViewById(R.id.textView3);
+        listView = (ListView) view.findViewById(R.id.plantDetailList);
+        plantImage = (ImageView) view.findViewById(R.id.plantDetailImage);
 
         loadInformation();
     }
 
-    private void loadInformation(){
-        String[] items = {model.plantName,model.plantDetail,model.plantDetail,model.plantDetail,model.plantDetail,model.plantDetail,model.plantDetail};
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,items);
+    private void loadInformation() {
+        plantName.setText(model.plantName);
+        plantName.invalidate();
+
+        adapter = new PlantDetailListAdapter(getActivity(), this.model);
         listView.setAdapter(adapter);
     }
 }

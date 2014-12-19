@@ -63,7 +63,7 @@ public class PlantListAdapter extends BaseAdapter {
 
         holder.plantImage.setBackgroundColor(Color.argb(255, rand.nextInt(256), rand.nextInt(256), rand.nextInt(256)));
         holder.plantName.setText(plants.get(position).plantName);
-        holder.plantDetail.setText(plants.get(position).plantDetail);
+        holder.plantDetail.setText(plants.get(position).plantCommonNames);
 
         return convertView;
     }

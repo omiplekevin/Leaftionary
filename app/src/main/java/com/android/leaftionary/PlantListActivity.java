@@ -38,7 +38,7 @@ public class PlantListActivity extends Activity {
         for(int i=0;i<100;i++){
             model = new PlantModel();
             model.plantName = "Plant Name #"+(i+1);
-            model.plantDetail = "Plant Detail #"+(i+1);
+            model.plantCommonNames = "Plant Detail #"+(i+1);
             plants.add(model);
         }
 
